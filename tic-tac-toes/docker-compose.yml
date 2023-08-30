@@ -7,7 +7,7 @@ services:
       
   gSwagger:
     image: lscr.io/linuxserver/swag
-    container_name: swag
+    container_name: gSwagger
     cap_add:
       - NET_ADMIN
     env_file:
