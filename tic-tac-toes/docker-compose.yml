@@ -29,5 +29,5 @@ services:
     volumes:
       - /home/garrett/data/swag:/config
     ports:
-    - 0.0.0.0:3000:80
+    - 0.0.0.0:3000:443
     restart: unless-stopped
