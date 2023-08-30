@@ -4,14 +4,7 @@ services:
     build: .
     ports:
       - 80:80
-
-version: "3"
-services:
-  client:
-    build: .
-    # ports: # remove the ports so the swag container can use them
-    # - 0.0.0.0:3011:80
-
+      
   gSwagger:
     image: lscr.io/linuxserver/swag
     container_name: swag
