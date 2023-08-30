@@ -4,3 +4,30 @@ services:
     build: .
     ports:
       - 80:80
+
+version: "3"
+services:
+  client:
+    build: .
+    # ports: # remove the ports so the swag container can use them
+    # - 0.0.0.0:3011:80
+
+  gSwagger:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    env_file:
+    - .env
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Denver
+      - URL=myawesometictactoe
+      - VALIDATION=duckdns
+      - STAGING=true
+    volumes:
+      - /home/garrett/data/swag:/config
+    ports:
+    - 0.0.0.0:3000:80
+    restart: unless-stopped
